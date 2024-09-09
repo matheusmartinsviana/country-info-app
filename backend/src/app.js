@@ -1,9 +1,11 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 
 const base_url = 'https://date.nager.at/api/v3/';
 
 app.use(express.json());
+app.use(cors())
 
 app.get('/api/v1/countries', async (req, res) => {
     try {
@@ -33,12 +35,13 @@ app.get('/api/v1/CountryInfo/:countryCode', async (req, res) => {
         });
         const data = await response.json();
 
-        const populationCount = await getCountryPopulation(data.commonName);
+        const populationNumber = await getCountryPopulation(data.commonName);
         const countryFlag = await getCountryFlag(countryCode);
 
         return res.json({
+            name: data.commonName,
             borders: data.borders,
-            population: populationCount,
+            population: populationNumber,
             flag: countryFlag
         });
     } catch (error) {
@@ -56,10 +59,15 @@ const getCountryPopulation = async (city) => {
             },
             body: JSON.stringify({ city })
         });
+        const data = await response.json()
+        if(data.error == true){
+            return data.msg
+        }
+        const populationData = data.data.populationCounts
 
-        const data = await response.json();
-        const countryPopulation = data.populationCounts;
-        return countryPopulation;
+        const latestPopulation = populationData[populationData.length - 1]
+
+        return latestPopulation ? latestPopulation.value : 'Population data not available'
     } catch (error) {
         console.error('Error fetching country population:', error);
         throw new Error('Error fetching country population');
@@ -77,8 +85,7 @@ const getCountryFlag = async (countryCode) => {
         });
 
         const data = await response.json();
-        const countryFlag = data.flag;
-        return countryFlag;
+        return data.data.flag;;
     } catch (error) {
         console.error('Error fetching country flag:', error);
         throw new Error('Error fetching country flag');

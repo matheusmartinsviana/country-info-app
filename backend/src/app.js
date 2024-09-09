@@ -37,9 +37,10 @@ app.get('/api/v1/CountryInfo/:countryCode', async (req, res) => {
 
         const populationNumber = await getCountryPopulation(data.commonName);
         const countryFlag = await getCountryFlag(countryCode);
-
+        console.log(data)
         return res.json({
             name: data.commonName,
+            countryCode: data.countryCode,
             borders: data.borders,
             population: populationNumber,
             flag: countryFlag
@@ -60,7 +61,7 @@ const getCountryPopulation = async (city) => {
             body: JSON.stringify({ city })
         });
         const data = await response.json()
-        if(data.error == true){
+        if (data.error == true) {
             return data.msg
         }
         const populationData = data.data.populationCounts

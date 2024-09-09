@@ -13,13 +13,20 @@ export default function CountryInfo() {
         return <p>Error: {error}</p>;
     }
 
-    console.log(country)
+    const borders = country.borders;
+    console.log(country);
+
     return (
         <div>
-            <h1>{country.name}</h1>
-            <img src={country.flag} alt={`${country.name} Flag`} />
+            <h1>{country.name}, {country.countryCode}</h1>
+            <img src={country.flag} alt={`${country.name} Flag`} height={300} width={300} title={`${country.name} Flag`} />
             <p>Population: {country.population}</p>
-            <p>Capital: {country.capital}</p>
-        </div >
+            <p>Borders:</p>
+            <ul>
+                {borders.map((border, index) => (
+                    <li key={index}>{border.commonName}</li>
+                ))}
+            </ul>
+        </div>
     );
 }

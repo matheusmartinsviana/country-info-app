@@ -1,4 +1,4 @@
-#Country Info App
+# Country Info App
 Developed by <a href="https://www.linkedin.com/in/matheusmartinsviana/" target="_blank">me</a>
 
 ## How to run

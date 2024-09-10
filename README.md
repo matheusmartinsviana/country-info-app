@@ -1,4 +1,5 @@
 # Country Info App
+This repository has a small application using nodejs and reactjs to display country information, with information such as border countries and a population graph. <br>
 Developed by <a href="https://www.linkedin.com/in/matheusmartinsviana/" target="_blank">me</a>
 
 ## How to run

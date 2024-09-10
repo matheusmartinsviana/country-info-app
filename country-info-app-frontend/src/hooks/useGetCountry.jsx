@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useGetCountry = (countryCode) => {
-    const [country, setCountry] = useState(null); // Inicialize como null
+    const [country, setCountry] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 

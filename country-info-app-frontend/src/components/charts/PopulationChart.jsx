@@ -21,7 +21,6 @@ const PopulationChart = ({ populationData = [], countryName = 'Unknown Country',
         data: populationValues,
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        fill: true,
       },
     ],
   };

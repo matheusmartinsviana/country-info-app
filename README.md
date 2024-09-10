@@ -21,8 +21,9 @@ Now enter the folder *Backend*:
     npm run dev
 ```
 Make sure it worked if show the message: 'Server running at port 8000'.
-
-Now it is necessary to set the environment variables:
+<br>
+Open VS Code and inside country-info-app-frontend follow these steps:
+Firstly is necessary to set the environment variables:
 ```bash
     Step 1: 
     Create a file with name: .env

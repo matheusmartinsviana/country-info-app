@@ -4,13 +4,21 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-const PopulationChart = () => {
+const PopulationChart = ({ populationData = [], countryName = 'Unknown Country', countryCode = 'Unknown Code' }) => {
+
+  const years = Array.isArray(populationData) && populationData.length > 0
+    ? populationData.map((dataPoint) => dataPoint.year)
+    : ['Not Found'];
+  const populationValues = Array.isArray(populationData) && populationData.length > 0
+    ? populationData.map((dataPoint) => dataPoint.value)
+    : ['Not Found'];
+
   const data = {
-    labels: ['2000', '2005', '2010', '2015', '2020'],
+    labels: years,
     datasets: [
       {
-        label: 'População',
-        data: [1000, 1200, 1400, 1600, 1800],
+        label: 'Population Line',
+        data: populationValues,
         borderColor: 'rgba(75, 192, 192, 1)',
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         fill: true,
@@ -22,16 +30,21 @@ const PopulationChart = () => {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        position: 'bottom',
       },
       title: {
         display: true,
-        text: 'População ao Longo dos Anos',
+        text: `Population from ${countryName}, ${countryCode} over the years`,
       },
     },
   };
 
-  return <Line data={data} options={options} />;
+  return (
+    <div className='h-48 w-96'>
+      <h1 title='Population Graphic' className='text-2xl outline-none mt-5 mb-5'>Population Graphic</h1>
+      <Line data={data} options={options} title='Graphic with X(Year) and Y(Population) information' />
+    </div>
+  )
 };
 
 export default PopulationChart;

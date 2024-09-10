@@ -1,30 +1,37 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
 
-const PopulationChart = ({ populationData }) => {
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
-  const data = Array.isArray(populationData) ? populationData : [];
+const PopulationChart = () => {
+  const data = {
+    labels: ['2000', '2005', '2010', '2015', '2020'],
+    datasets: [
+      {
+        label: 'População',
+        data: [1000, 1200, 1400, 1600, 1800],
+        borderColor: 'rgba(75, 192, 192, 1)',
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        fill: true,
+      },
+    ],
+  };
 
-  return (
-    <div>
-      <h2>Population Chart</h2>
-      {data.length === 0 ? (
-        <p>No population data available.</p>
-      ) : (
-        <ul>
-          {data.map((item, index) => (
-            <li key={index}>
-              {item.city}: {item.population}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-};
+  const options = {
+    responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'População ao Longo dos Anos',
+      },
+    },
+  };
 
-PopulationChart.propTypes = {
-  populationData: PropTypes.array
+  return <Line data={data} options={options} />;
 };
 
 export default PopulationChart;

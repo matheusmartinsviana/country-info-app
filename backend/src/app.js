@@ -35,8 +35,9 @@ app.get('/api/v1/CountryInfo/:countryCode', async (req, res) => {
         });
         const data = await response.json();
 
+        const capital = getCountryCity(data.commonName)
         const populationData = await getCountryPopulationData(data.commonName)
-        const populationNumber = await getCountryPopulation(data.commonName);
+        const populationNumber = await getCountryPopulation(await capital);
         const countryFlag = await getCountryFlag(countryCode);
 
         return res.json({
@@ -75,7 +76,7 @@ const getCountryCity = async (countryName) => {
     }
 }
 
-const getCountryPopulationData = async (countryName) => {
+const getCountryPopulationData = async () => {
     try {
         const capital = await getCountryCity('Armenia')
         const response = await fetch('https://countriesnow.space/api/v0.1/countries/population/cities', {

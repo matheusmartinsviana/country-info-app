@@ -52,14 +52,14 @@ export default function CountryInfo() {
                         width={300}
                         title={`${name} Flag`}
                     />
-                    <p title={`Population: ${population}`} className='text-base mt-5'>Population: {population}</p>
-                    <p title='Borders Countries' className='text-base mt-1'>Borders Countries:</p>
+                    <p title={`Population: ${population}`} className='text-base mt-5'><strong>Population:</strong> {population === 'city data not found' ? population : Number(population).toLocaleString('en-US')}</p>
+                    <p title='Borders Countries' className='text-base mt-1'><strong>Borders Countries:</strong></p> 
                     <ul>
                         {borders.map((border) => (
                             <li
                                 key={border.countryCode}
                                 onClick={() => changeParams(border.countryCode)}
-                                className='text-blue-800 underline cursor-pointer hover:translate-x-1 transition-all'
+                                className='block px-4 py-2 text-gray-700 hover:translate-x-1 transition-all w-32 cursor-pointer underline'
                                 title={`Go to ${border.commonName} info`}
                             >
                                 {border.commonName}

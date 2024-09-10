@@ -2,6 +2,14 @@
 This repository has a small application using nodejs and reactjs to display country information, with information such as border countries and a population graph. <br>
 Developed by <a href="https://www.linkedin.com/in/matheusmartinsviana/" target="_blank">me</a>
 
+## Difficulties
+- One of the most difficult tasks I had to deal with in this challenge was manipulating the information I pulled from the backend in the sense of, what if it doesn't exist? I had to do these treatments. <br>
+- Another difficulty was managing the functions in the backend (as I needed to use 2 APIs, one with data from the other and all async) <br>
+- Change the screen content when the user clicks on another country, as I needed to update the country information and update the graphic information(two diferent components).
+
+## Future improvements
+- Improve the UX/UI <br>
+
 ## How to run
 
 Clone this repository:
@@ -9,7 +17,7 @@ Clone this repository:
     git clone https://github.com/matheusmartinsviana/country-info-app
 ```
 
-Open the folder in mainframe: 
+Open the folder in mainframe:
 ```bash
     cd country-info-app
 ```

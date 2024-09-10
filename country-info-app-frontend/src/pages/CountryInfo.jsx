@@ -39,13 +39,13 @@ export default function CountryInfo() {
     }
 
     return (
-        <div className='flex flex-col justify-center items-center'>
+        <div className='flex flex-col justify-center items-center transition-all'>
             <button className='absolute top-10 left-10 bg-black text-white p-1 rounded w-14' onClick={() => navigate(-1)}>Back</button>
-            <div className='flex gap-20 flex-wrap mt-20'>
-                <section className=''>
+            <div className='flex gap-20 flex-wrap m-20'>
+                <section>
                     <h1 title={`${name}, ${code}`} className=' text-2xl outline-none mt-5 mb-5'>{name}, {code}</h1>
                     <img
-                        className='rounded-xl shadow-lg'  
+                        className='rounded-xl shadow-lg'
                         src={flag}
                         alt={`${name} Flag`}
                         height={300}

@@ -76,15 +76,16 @@ const getCountryCity = async (countryName) => {
     }
 }
 
-const getCountryPopulationData = async () => {
+const getCountryPopulationData = async (country) => {
     try {
-        const capital = await getCountryCity('Armenia')
+        const capital = await getCountryCity(country)
+        console.log(capital)
         const response = await fetch('https://countriesnow.space/api/v0.1/countries/population/cities', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ city: capital })
+            body: JSON.stringify({ city: await capital })
         });
         const result = await response.json()
         if (result.error == true) {

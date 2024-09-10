@@ -45,7 +45,7 @@ export default function CountryInfo() {
                 <section className=''>
                     <h1 title={`${name}, ${code}`} className=' text-2xl outline-none mt-5 mb-5'>{name}, {code}</h1>
                     <img
-                        className='rounded-xl'  
+                        className='rounded-xl shadow-lg'  
                         src={flag}
                         alt={`${name} Flag`}
                         height={300}

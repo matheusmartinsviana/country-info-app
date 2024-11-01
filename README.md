@@ -1,7 +1,4 @@
-<div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-    <img src="https://img.shields.io/github/last-commit/matheusmartinsviana/country-info-app" />
-    <img src="https://github.com/user-attachments/assets/cc14cb52-a7a7-4ea7-aa43-2e19e85e2764" height="auto" width="700" />
-</div>
+<img src="https://github.com/user-attachments/assets/cc14cb52-a7a7-4ea7-aa43-2e19e85e2764" height="auto" width="700" />
 
 # Country Info App
 This repository has a application using nodejs and reactjs to display country information, with information such as border countries and a population graph. <br>

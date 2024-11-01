@@ -1,5 +1,5 @@
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-![Último commit](https://img.shields.io/github/last-commit/matheusmartinsviana/country-info-app)
+<img src="https://img.shields.io/github/last-commit/matheusmartinsviana/country-info-app" />
 <img src="https://github.com/user-attachments/assets/cc14cb52-a7a7-4ea7-aa43-2e19e85e2764" height="auto" width="700" />
 </div>
 # Country Info App
